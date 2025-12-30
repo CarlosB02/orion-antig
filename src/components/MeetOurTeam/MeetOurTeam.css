@@ -1,0 +1,294 @@
+.meet-team {
+    padding: 8rem 2rem 4rem;
+    background-color: #ffffff;
+    /* White background */
+    min-height: 100vh;
+    color: #333333;
+    /* Dark text */
+}
+
+.meet-team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.meet-team h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-bg-dark);
+    /* Use the dark blue for headers */
+}
+
+.team-section {
+    margin-bottom: 4rem;
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-bg-dark);
+    border-bottom: 1px solid var(--color-bg-dark);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.team-card {
+    background: #f9f9f9;
+    /* Light grey card background */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 2rem;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Softer shadow */
+    border-color: var(--color-bg-dark);
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-bg-dark);
+    /* Dark border */
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder-icon {
+    width: 60%;
+    height: 60%;
+    color: #888;
+}
+
+.member-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.member-role {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    min-height: 2.8em;
+}
+
+.member-email {
+    color: var(--color-bg-dark);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.member-email:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.contact-section-wrapper {
+    padding: 0 1rem 4rem;
+    margin-top: 4rem;
+    background: transparent;
+    border: none;
+}
+
+.contact-section-wrapper h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-bg-dark);
+}
+
+.contact-content-split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    /* Remove gap for joined look */
+    justify-content: center;
+    align-items: stretch;
+    /* Stretch so both cols have same height */
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-column,
+.contact-form-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info-column {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding: 3rem;
+    background: var(--color-bg-dark);
+    /* Dark background for info */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* No border radius or individual shadow */
+}
+
+.contact-form-column {
+    flex: 1.5;
+    /* Give form slightly more space */
+    min-width: 300px;
+    padding: 3rem;
+    background: #ffffff;
+}
+
+.contact-info-column h3 {
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.contact-info-column p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-info-column a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+}
+
+.contact-info-column a:hover {
+    border-bottom-color: #ffffff;
+    opacity: 0.9;
+}
+
+.contact-note {
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-top: 0;
+}
+
+.contact-form-column h3 {
+    margin-bottom: 1.5rem;
+    color: var(--color-bg-dark);
+    font-size: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #ffffff;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-bg-dark);
+}
+
+.submit-btn {
+    background-color: var(--color-bg-dark);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: var(--font-main);
+    /* Ensure it uses the site font */
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #2c4450;
+}
+
+/* Override strong tags to be normal weight as requested */
+.contact-info-column strong {
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .meet-team {
+        padding-top: 6rem;
+    }
+
+    .contact-content-split {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .meet-team {
+        padding-top: 5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .meet-team h1 {
+        font-size: 2rem;
+    }
+
+    .team-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-section-wrapper {
+        padding: 2rem 1rem;
+    }
+
+    .contact-info-column,
+    .contact-form-column {
+        min-width: 100%;
+        padding: 1.5rem;
+    }
+}
