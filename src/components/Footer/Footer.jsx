@@ -7,32 +7,27 @@ const Footer = () => {
     return (
         <footer className="footer" id="contacts">
             <div className="footer-content">
-                <div className="footer-logo">
+                <div className="footer-column logo-column">
                     <img src={logo} alt="Orion Technik Logo" className="footer-logo-img" />
-
                 </div>
 
                 <div className="footer-column">
-                    <h4>Address</h4>
+                    <h4>ADDRESS</h4>
                     <p>Caminho do Parrau 10</p>
-                    <p>Zona Industrial das Corredouras</p>
+                    <p>Zona Industrial das Corredoras</p>
                     <p>2630-369 Arruda dos Vinhos</p>
                     <p>Portugal</p>
                 </div>
 
                 <div className="footer-column">
-                    <h4>Phone</h4>
-                    <p>+351 219 987 090</p>
-                </div>
-
-                <div className="footer-column">
-                    <h4>Email Address</h4>
-                    <p>info@oriontechnik.com</p>
-                </div>
-
-                <div className="footer-column">
-                    <h4>Links</h4>
-                    <p><Link to="/design2" style={{ color: 'inherit', textDecoration: 'none' }}>Design 2</Link></p>
+                    <div className="contact-block">
+                        <h4>PHONE</h4>
+                        <p>+351 210 987 098</p>
+                    </div>
+                    <div className="contact-block">
+                        <h4>EMAIL ADDRESS</h4>
+                        <p>info@oriontechnik.com</p>
+                    </div>
                 </div>
             </div>
         </footer >

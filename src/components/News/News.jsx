@@ -10,17 +10,14 @@ const News = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
+                // 1. Fetch RSS Feed
                 const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://eco.sapo.pt/eradar/feed');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch news');
-                }
                 const data = await response.json();
 
-                // Take the first 3 items from the feed
-                const recentNews = data.items.slice(0, 3).map(item => {
+                // 2. Process & Translate Items
+                const recentNews = await Promise.all(data.items.slice(0, 3).map(async (item) => {
                     // Try to find image in enclosure, thumbnail, or regex match in description/content
                     let imageUrl = item.thumbnail || item.enclosure?.link;
-
                     if (!imageUrl && item.description) {
                         const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
                         if (imgMatch) {
@@ -28,15 +25,36 @@ const News = () => {
                         }
                     }
 
+                    const cleanDescription = item.description
+                        ? item.description.replace(/<[^>]+>/g, '').substring(0, 150) + '...'
+                        : '';
+
+                    // --- TRANSLATION FUNCTION ---
+                    const translateText = async (text) => {
+                        try {
+                            if (!text) return '';
+                            const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=pt|en`);
+                            const data = await res.json();
+                            return data.responseData.translatedText || text;
+                        } catch (e) {
+                            console.warn('Translation failed:', e);
+                            return text;
+                        }
+                    };
+
+                    // Translate Title and Description
+                    const [translatedTitle, translatedDesc] = await Promise.all([
+                        translateText(item.title),
+                        translateText(cleanDescription)
+                    ]);
+
                     return {
-                        title: item.title,
+                        title: translatedTitle,
                         link: item.link,
                         image: imageUrl || null,
-                        description: item.description
-                            ? item.description.replace(/<[^>]+>/g, '').substring(0, 150) + '...'
-                            : null
+                        description: translatedDesc
                     };
-                });
+                }));
 
                 setNewsItems(recentNews);
                 setLoading(false);

@@ -4,27 +4,31 @@ import './MeetOurTeam.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-import andreImg from '../../assets/andre-baptista.jpg';
-import marioImg from '../../assets/mario-ramos.jpg';
+import andreImg from '../../assets/andre-baptista-new.jpg';
+import marioImg from '../../assets/mario-ramos-new.jpg';
+import franciscoImg from '../../assets/francisco-oom-peres.jpg';
+import joseImg from '../../assets/jose-macieira.jpg';
+import davidImg from '../../assets/david-simao.jpg';
 
 const partners = [
     {
         name: "Francisco Oom Peres",
         role: "Partner | Accountable Manager",
         email: "oomperes@orionaviation.eu",
-        image: null
+        image: franciscoImg,
+        objectPosition: '85% top'
     },
     {
         name: "David Simão",
         role: "Partner | Head of Planning",
         email: "david@orionaviation.eu",
-        image: null
+        image: davidImg
     },
     {
         name: "José Macieira",
         role: "Partner | Head of Engineering",
         email: "jose@orionaviation.eu",
-        image: null
+        image: joseImg
     }
 ];
 
@@ -43,11 +47,15 @@ const keyPersonnel = [
     }
 ];
 
-const TeamCard = ({ member }) => (
-    <div className="team-card">
+const TeamCard = ({ member, delay }) => (
+    <div className="team-card" style={{ animationDelay: `${delay}s` }}>
         <div className="member-photo">
             {member.image ? (
-                <img src={member.image} alt={member.name} />
+                <img
+                    src={member.image}
+                    alt={member.name}
+                    style={member.objectPosition ? { objectPosition: member.objectPosition } : {}}
+                />
             ) : (
                 <User className="placeholder-icon" />
             )}
@@ -74,7 +82,7 @@ const MeetOurTeam = () => {
                         <h2>Leadership Team</h2>
                         <div className="team-grid">
                             {partners.map((member, index) => (
-                                <TeamCard key={index} member={member} />
+                                <TeamCard key={index} member={member} delay={index * 0.2} />
                             ))}
                         </div>
                     </section>
@@ -83,43 +91,35 @@ const MeetOurTeam = () => {
                         <h2>Key Personnel</h2>
                         <div className="team-grid">
                             {keyPersonnel.map((member, index) => (
-                                <TeamCard key={index} member={member} />
+                                <TeamCard key={index} member={member} delay={(partners.length + index) * 0.2} />
                             ))}
-                        </div>
-                    </section>
-
-                    <section id="contact" className="contact-section-wrapper">
-                        <h2>Contact Us</h2>
-                        <div className="contact-content-split">
-                            <div className="contact-info-column">
-                                <h3>Get in Touch</h3>
-                                <p>
-                                    <strong>Email:</strong> <a href="mailto:camo@orionaviation.eu">camo@orionaviation.eu</a>
-                                </p>
-                                <p>
-                                    <strong>Phone:</strong> <a href="tel:+351932751200">+351 932 751 200</a>
-                                </p>
-                            </div>
-
-                            <div className="contact-form-column">
-                                <h3>Send us a Message</h3>
-                                <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-                                    <div className="form-group">
-                                        <input type="text" placeholder="Name" required />
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="email" placeholder="Email" required />
-                                    </div>
-                                    <div className="form-group">
-                                        <textarea placeholder="Message" rows="5" required></textarea>
-                                    </div>
-                                    <button type="submit" className="submit-btn">Send Message</button>
-                                </form>
-                            </div>
                         </div>
                     </section>
                 </div>
             </div>
+
+            <section id="contact" className="contact-section-full">
+                <div className="contact-container">
+                    <h2>Contact Us</h2>
+                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                        <div className="form-row">
+                            <div className="form-group">
+                                <input type="text" placeholder="Name" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="email" placeholder="Email" required />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <input type="text" placeholder="Subject" required />
+                        </div>
+                        <div className="form-group">
+                            <textarea placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" className="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </section>
             <Footer />
         </>
     );
