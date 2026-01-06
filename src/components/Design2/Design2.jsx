@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import Section from '../Section/Section';
@@ -97,7 +98,7 @@ const Design2 = () => {
                             <span className="d2-card-subtitle">{maintenanceData.subtitle}</span>
                             <p>{maintenanceData.text}</p>
                             <div className="d2-card-footer">
-                                <button className="d2-learn-more-btn">Learn More</button>
+                                <Link to="/meet-our-team#contact" className="d2-learn-more-btn">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -109,7 +110,7 @@ const Design2 = () => {
                             <span className="d2-card-subtitle">{engineeringData.subtitle}</span>
                             <p>{engineeringData.text}</p>
                             <div className="d2-card-footer">
-                                <button className="d2-learn-more-btn">Learn More</button>
+                                <Link to="/meet-our-team#contact" className="d2-learn-more-btn">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@ const Design2 = () => {
                             <span className="d2-card-subtitle">{otherData.subtitle}</span>
                             <p>{otherData.text}</p>
                             <div className="d2-card-footer">
-                                <button className="d2-learn-more-btn">Learn More</button>
+                                <Link to="/meet-our-team#contact" className="d2-learn-more-btn">Learn More</Link>
                             </div>
                         </div>
                     </div>

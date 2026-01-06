@@ -33,9 +33,19 @@ const News = () => {
                     const translateText = async (text) => {
                         try {
                             if (!text) return '';
-                            const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=pt|en`);
+                            // Use user email to increase limit to 50k words/day
+                            const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=pt|en&de=geral@enimble.pt`);
                             const data = await res.json();
-                            return data.responseData.translatedText || text;
+
+                            const translated = data.responseData.translatedText;
+
+                            // Check for usage limit warning and fallback to original text
+                            if (translated && (translated.startsWith('MYMEMORY WARNING') || data.responseStatus === 429)) {
+                                console.warn('Translation quota exceeded, using original text.');
+                                return text;
+                            }
+
+                            return translated || text;
                         } catch (e) {
                             console.warn('Translation failed:', e);
                             return text;

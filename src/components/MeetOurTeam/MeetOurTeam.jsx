@@ -71,6 +71,54 @@ const TeamCard = ({ member, delay }) => (
 );
 
 const MeetOurTeam = () => {
+    const [formData, setFormData] = React.useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const { name, email, subject, message } = formData;
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/f219d5b810974f17448312dee249d77c", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    _subject: subject, // Map form subject to email subject
+                    message
+                })
+            });
+
+            if (response.ok) {
+                alert("Message sent successfully!");
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                alert("Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("An error occurred. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <>
             <Header />
@@ -101,22 +149,56 @@ const MeetOurTeam = () => {
             <section id="contact" className="contact-section-full">
                 <div className="contact-container">
                     <h2>Contact Us</h2>
-                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-row">
                             <div className="form-group">
-                                <input type="text" placeholder="Name" required />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Name"
+                                    required
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
                             </div>
                             <div className="form-group">
-                                <input type="email" placeholder="Email" required />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    required
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
                             </div>
                         </div>
                         <div className="form-group">
-                            <input type="text" placeholder="Subject" required />
+                            <input
+                                type="text"
+                                name="subject"
+                                placeholder="Subject"
+                                required
+                                value={formData.subject}
+                                onChange={handleChange}
+                            />
                         </div>
                         <div className="form-group">
-                            <textarea placeholder="Message" rows="5" required></textarea>
+                            <textarea
+                                name="message"
+                                placeholder="Message"
+                                rows="5"
+                                required
+                                value={formData.message}
+                                onChange={handleChange}
+                            ></textarea>
                         </div>
-                        <button type="submit" className="submit-btn">Send Message</button>
+                        <button
+                            type="submit"
+                            className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </button>
                     </form>
                 </div>
             </section>

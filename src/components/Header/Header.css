@@ -28,9 +28,11 @@
 }
 
 .logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
     margin-bottom: 5px;
+    filter: brightness(0) invert(1);
+    /* Make logo monochromatic white */
 }
 
 .nav ul {

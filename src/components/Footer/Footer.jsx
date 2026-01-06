@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/orion-logo-new.png';
 
 const Footer = () => {
     return (
@@ -13,10 +13,9 @@ const Footer = () => {
 
                 <div className="footer-column">
                     <h4>ADDRESS</h4>
-                    <p>Caminho do Parrau 10</p>
-                    <p>Zona Industrial das Corredoras</p>
-                    <p>2630-369 Arruda dos Vinhos</p>
-                    <p>Portugal</p>
+                    <p>Northlink Business Centre, Level 2</p>
+                    <p>Burmarrad Road</p>
+                    <p>Naxxar, Malta</p>
                 </div>
 
                 <div className="footer-column">
@@ -26,7 +25,7 @@ const Footer = () => {
                     </div>
                     <div className="contact-block">
                         <h4>EMAIL ADDRESS</h4>
-                        <p>info@oriontechnik.com</p>
+                        <p>camo@orionaviation.eu</p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Section.css';
 import { Plus } from 'lucide-react';
 
@@ -41,9 +42,9 @@ const Section = ({ title, text, image, reversed, children }) => {
                 <p className="section-text">{text}</p>
                 <div className="section-actions">
                     {children}
-                    <button className="learn-more-btn">
-                        Learn more <Plus size={16} />
-                    </button>
+                    <Link to="/meet-our-team#contact" className="learn-more-btn" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                        Learn more <Plus size={16} style={{ marginLeft: '0.5rem' }} />
+                    </Link>
                 </div>
             </div>
             <div className="section-image">
