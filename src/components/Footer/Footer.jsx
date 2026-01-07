@@ -20,12 +20,8 @@ const Footer = () => {
 
                 <div className="footer-column">
                     <div className="contact-block">
-                        <h4>PHONE</h4>
-                        <p>+351 210 987 098</p>
-                    </div>
-                    <div className="contact-block">
                         <h4>EMAIL ADDRESS</h4>
-                        <p>camo@orionaviation.eu</p>
+                        <p>Info@orionaviation.eu</p>
                     </div>
                 </div>
             </div>
