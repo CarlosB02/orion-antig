@@ -6,54 +6,49 @@ import News from '../News/News';
 import Footer from '../Footer/Footer';
 import Certificates from '../Certificates/Certificates';
 import heroBg from '../../assets/hero-bg-final.png';
-import capabilitiesImg from '../../assets/capabilities.png';
+
 import qualityImg from '../../assets/quality.png';
 import camoImg from '../../assets/camo-services.png';
 import maintenanceImg from '../../assets/maintenance-supervision.png';
-import engineeringImg from '../../assets/engineering-support.png';
+import assetManagementImg from '../../assets/asset-management.png';
 import otherImg from '../../assets/other-services.png';
 
 // Placeholder data for sections
-const capabilitiesData = {
-    title: "Capabilities",
-    text: "Based in Lisbon, Portugal, Orion Technik is an EASA & EMAR 145 (PT.145.037) approved repair station specialized in Avionics, Instruments, Wheels and Brakes, Lighting, Antennas, Electronics, Galley, Electro-Mechanical, Hydraulic, Mechanical and Radar components for defense and commercial platforms.",
-    image: capabilitiesImg,
+
+
+const qualityData = {
+    title: "Compliance Monitoring Management",
+    text: "Orion Aviation provides independent Compliance Monitoring Management to verify regulatory adherence, identify risks, and drive timely corrective actions across your continuing airworthiness and safety management systems.",
+    image: qualityImg,
     reversed: false
 };
 
-const qualityData = {
-    title: "Quality",
-    text: "Orion Technik is registered as a Portuguese Ministry of Defense and NATO supplier (CAGE Code: P3457) and manages the operations according to the Aerospace Industry Quality Management System AS/EN 9100, ISO 9001, NATO AQAP 2110, the European Aerospace Authority (EASA) PART-145 and the European Military Authority (EMAR) EMAR-145.",
-    image: qualityImg,
-    reversed: true
-};
-
 const camoData = {
-    title: "CAMO Services under TM-CAD approval MT.CAMO.0107 and BDA CAMO 257",
-    text: "We provide comprehensive CAMO Services under TM-CAD approval MT.CAMO.0107 and BDA CAMO 257, including Aircraft Management, Airworthiness Management, Development and approval of maintenance programs, Technical Support and Troubleshooting, Management of aircraft maintenance documentation, Record keeping of all maintenance activities, Reliability Monitoring, and Support to other CAMOs.",
+    title: "EASA and Bermudan certified CAMO services",
+    text: "We provide comprehensive EASA and Bermudan CAA approved CAMO services under TM-CAD approval MT.CAMO.0107 and BDA CAMO 257, including Aircraft Management, Airworthiness Management, Development and approval of maintenance programs, Technical Support and Troubleshooting, Management of aircraft maintenance documentation, Record keeping of all maintenance activities, Reliability Monitoring, and Support to other CAMOs.",
     image: camoImg,
     reversed: true
 };
 
 const maintenanceData = {
     title: "Maintenance Supervision and Technical representation",
-    text: "Our services include Pre-Purchase Inspections, Aircraft Phase In & Phase out supervision, Mid-life surveys, and Base Maintenance Inspections.",
+    text: "Our services include technically representing our clients, remotely or onsite, to assess, supervise and control 3rd party maintenance providers, ranging from line maintenance providers, to base maintenance MRO facilities, and including engine/propeller/landing gear/component repair shops. This representation can also include cost analysis, and, where necessary, value discussions with the provider.",
     image: maintenanceImg,
     reversed: false
 };
 
-const engineeringData = {
-    title: "Engineering Support",
-    text: "We offer evaluation of existing modifications & repairs for their acceptance during any aircraft import/export, Development and approval of individual Minor Changes in house, and Support in the development of any STCs (Supplemental Type Certificate).",
-    image: engineeringImg,
+const assetManagementData = {
+    title: "Asset Management",
+    text: "Our services include Pre-Purchase / Mid-Lease / End-of-Lease Inspections, with or without an associated valuation, delivery or redelivery coordination and/or support, repossession planning and execution, to name a few.",
+    image: assetManagementImg,
     reversed: true
 };
 
 const otherData = {
     title: "Other services",
-    text: "Additional services include Aircraft valuation & aeronautical component appraisals, Aircraft physical inspections, Continuing airworthiness audits, Engine Shop visit management, Aircraft documental review, and General Aviation Consulting for any special projects.",
+    text: "Additionally to the services already noted previously, we can also provide continuing airworthiness audits, engine/landing gear / propeller / other components Shop visit management, aircraft documental review, and technical aviation Consulting for any special project.",
     image: otherImg,
-    reversed: false
+    reversed: true
 };
 
 const Home = () => {
@@ -61,15 +56,15 @@ const Home = () => {
         <div className="home">
             <Header />
             <Hero />
-            <Section {...capabilitiesData} />
+
             <News />
             <Section {...camoData}>
                 <Certificates />
             </Section>
             <Section {...maintenanceData} />
-            <Section {...engineeringData} />
-            <Section {...otherData} />
+            <Section {...assetManagementData} />
             <Section {...qualityData} />
+            <Section {...otherData} />
             <Footer />
         </div>
     );

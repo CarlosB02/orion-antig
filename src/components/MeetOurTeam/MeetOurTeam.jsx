@@ -41,7 +41,7 @@ const keyPersonnel = [
     },
     {
         name: "Mário Ramos",
-        role: "SCMM - Safety & Compliance Manager",
+        role: "SCMM - Safety & Compliance Monitoring Manager",
         email: "mario@orionaviation.eu",
         image: marioImg
     }

@@ -56,6 +56,28 @@
     margin-bottom: 0;
 }
 
+.footer-social-link {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+}
+
+.footer-social-link:hover {
+    opacity: 0.8;
+}
+
+.footer-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;

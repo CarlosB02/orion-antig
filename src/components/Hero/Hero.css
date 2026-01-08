@@ -12,29 +12,70 @@
     /* Force stacking context so background -1 doesn't hide behind parent */
 }
 
-.hero-background {
+.hero-background-slider {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: var(--color-bg-dark);
-    /* Ensure consistent dark background */
 }
 
-.hero-background img {
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.8);
-    /* Darken slightly for text readability */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    filter: brightness(0.7);
+    /* Slightly darker for text readability */
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+}
+
+.hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    padding: 0;
+}
+
+.hero-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+.hero-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .hero-content {
     margin-top: 100px;
     /* Offset for header */
-    max-width: 800px;
+    max-width: 1200px;
     z-index: 1;
     opacity: 0;
     transform: translateY(30px);
@@ -42,7 +83,7 @@
 }
 
 .hero-title {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
     line-height: 1.1;
     color: white;
