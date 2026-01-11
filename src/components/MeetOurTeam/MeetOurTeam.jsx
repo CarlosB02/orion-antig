@@ -91,7 +91,7 @@ const MeetOurTeam = () => {
         const { name, email, subject, message } = formData;
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/f219d5b810974f17448312dee249d77c", {
+            const response = await fetch("https://formsubmit.co/ajax/Info@orionaviation.eu", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

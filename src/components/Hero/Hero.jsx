@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import heroBgSunset from '../../assets/hero-bg-creative.png';
 import heroBgSunsetV2 from '../../assets/hero-bizjet-sunset.png';
@@ -11,7 +11,7 @@ const heroImages = [
     heroBgSunset,
     heroBgSunsetV2,
     heroBgATR,
-    heroBgHangar,
+    // heroBgHangar, // Removed as per request (4th image)
     heroBgHangarWide,
     heroBgOriginal
 ];
@@ -19,7 +19,12 @@ const heroImages = [
 const Hero = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [currentImageIndex]);
 
     const goToSlide = (index) => {
         setCurrentImageIndex(index);
