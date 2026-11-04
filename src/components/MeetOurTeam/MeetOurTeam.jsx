@@ -34,12 +34,6 @@ const partners = [
 
 const keyPersonnel = [
     {
-        name: "André Baptista",
-        role: "NPCA - Nominated Person Continuing Airworthiness",
-        email: "andre@orionaviation.eu",
-        image: andreImg
-    },
-    {
         name: "Mário Ramos",
         role: "SCMM - Safety & Compliance Monitoring Manager",
         email: "mario@orionaviation.eu",
